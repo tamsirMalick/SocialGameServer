@@ -10,6 +10,9 @@ import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "USER")
 public class User implements Serializable {
@@ -34,6 +37,7 @@ public class User implements Serializable {
 	@Lob
 	private byte[] photo;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<AnimCharacter> charecters;
 
